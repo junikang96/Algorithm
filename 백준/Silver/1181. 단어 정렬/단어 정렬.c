@@ -10,12 +10,10 @@ int compare(const void *a, const void *b)
     int len2 = strlen(s2);
 
     if (len1 != len2)
-        return len1 - len2;  // 길이 짧은 순으로 정렬
+        return len1 - len2; // 길이 짧은 순으로 정렬
     else
-        return strcmp(s1, s2);  // 길이가 같으면 사전순
+        return strcmp(s1, s2); // 길이가 같으면 사전순
 }
-
-
 
 int main(void)
 {
@@ -31,14 +29,29 @@ int main(void)
 
     qsort(input, sizeof(input) / sizeof(input[0]), sizeof(input[0]), compare);
 
-    printf("%s\n", input[0]);
-    for (int i = 1; i < N; i++)
+    int count = 1;
+    for (int i = 0; i < N; i++)
     {
-        if (strcmp(input[i], input[i - 1]) != 0)
+        if (strcmp(input[i], input[count - 1]) != 0)
         {
-            printf("%s\n", input[i]);
+            strcpy(input[count], input[i]);
+            count++;
         }
     }
+
+    for (int i = 0; i < count; i++)
+    {
+        printf("%s\n", input[i]);
+    }
+
+    // printf("%s\n", input[0]);
+    // for (int i = 1; i < N; i++)
+    // {
+    //     if (strcmp(input[i], input[i - 1]) != 0)
+    //     {
+    //         printf("%s\n", input[i]);
+    //     }
+    // }
 
     return 0;
 }
