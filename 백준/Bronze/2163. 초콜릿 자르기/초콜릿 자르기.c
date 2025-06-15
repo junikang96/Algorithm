@@ -6,6 +6,6 @@ int main(void)
     scanf("%d %d", &N, &M);
     
     int result = N * M - 1;
-    printf("%d\n", N * M - 1);
+    printf("%d\n", result);
     return 0;
 }
